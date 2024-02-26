@@ -3,4 +3,5 @@
 class UsersController < ApplicationController
 
   has_many :goals
+
 end

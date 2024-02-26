@@ -2,6 +2,8 @@ SHELL := /bin/bash
 # https://stackoverflow.com/questions/1789594/how-do-i-write-the-cd-command-in-a-makefile
 .ONESHELL: # Applies to every targets in the file!
 
+
+# create and starts a PostgreSQL Docker container named app_development_db
 create-db:
 	sudo docker run --name app_development_db \
    	-p 5432:5432 \
@@ -10,9 +12,11 @@ create-db:
    	-e POSTGRES_DB=app_development_db \
    	-d postgres:13.10
 
+# creates db in the postgres container, runs migration and populate the tables with initial data
 setup-db:
 	cd ./api/ && rails db:create && rails db:migrate && rails db:seed
 
+# run both rails server and client app
 run-app:
 	cd ./client/ && npm start & \
 	cd ./backend/ && rails s
