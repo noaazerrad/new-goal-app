@@ -15,4 +15,4 @@ setup-db:
 
 run-app:
 	cd ./client/ && npm start & \
-	cd ./backend/ && rails s
+	cd ./api/ && rails s
