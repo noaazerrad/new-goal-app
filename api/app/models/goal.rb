@@ -2,7 +2,11 @@
 
 class Goal < ApplicationRecord
 
-  #  add validation the start date can't be  > target date
+  # TODO: add validations for date checks like:
+  # Validate that the started_at date is not later than the target_date
+  # validate target_date is not in the past
+
+
   belongs_to :user
   has_many :goal_stats
 
