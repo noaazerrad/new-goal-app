@@ -10,10 +10,10 @@ class GoalsController < ApplicationController
     goal_spec = goal_param
     new_goal = Goals::Create.new.call( goal_spec)
 
-    if new_goal
+    if new_goal[:success]
       render json: { message: 'Goal stat created successfully' }, status: :created
     else
-      render json: { errors: new_goal }, status: :unprocessable_entity
+      render json: { errors: new_goal }, status: :bad_request
     end
   end
 

@@ -15,9 +15,7 @@ module Goals
 
       return 0 if stats.length == 0
 
-      total_reported_values = 0
-      @goal.goal_stats.map { |s| total_reported_values += s.value }
-
+      total_reported_values =  @goal.goal_stats.sum(:value)
       ((total_reported_values.to_f / stats.length)/@goal.target_value)*100
     end
 
