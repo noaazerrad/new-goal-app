@@ -9,6 +9,7 @@ class GoalStatsController < ApplicationController
     render json: @goal_stats
   end
 
+  # create a single new goal_stat
   def create
     goal_stats_spec = goal_spec_param
     new_goal_stats = GoalStats::Create.new.call(goal_stats_spec)

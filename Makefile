@@ -4,8 +4,9 @@ SHELL := /bin/bash
 
 
 # create and starts a PostgreSQL Docker container named app_development_db
+# if the image is not found locally, Docker will automatically pull it from the Docker Hub repository before creating and starting the container
 create-db:
-	sudo docker run --name app_development_db \
+	docker run --name app_development_db \
    	-p 5432:5432 \
    	-e POSTGRES_USER=user \
    	-e POSTGRES_PASSWORD=password \
