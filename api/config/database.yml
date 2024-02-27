@@ -4,7 +4,7 @@ default: &default
   database: postgres
   pool: 5
   timeout: 5000
-  host: localhost
+  host: db
   port: 5432
   username: user
   password: password

@@ -3,7 +3,12 @@
 The purpose of this app is to allow users to create goals and keep track of their progress by reporting updates, \
 thereby enabling them to monitor their progress status over time.
 
-Before running the commands make sure you the following configured:
+In order to run the app, will use docker-compose commands. run the following:
+1. docker compose build
+2. docker compose up
+
+
+In case you would like to run the app manually read and follow the instructions below:
 
 1. Docker - Docker is used to create a PostgreSQL container, which is needed for the database.
    * If you prefer not to use sudo with Docker commands, ensure that your user is a member of the Docker group. You can check if your user is already part of the Docker group by running the following command in the terminal: groups
@@ -11,14 +16,6 @@ Before running the commands make sure you the following configured:
    * If "docker" is not listed, you need to add your user to the Docker group. Run the following command in the terminal: sudo usermod -aG docker $USER
 2. node.js - is required to run the client application
 3. Ruby on rails - is required to run the server
-
-To run the app through makefile commands please run the following from the root directory of the project: 
-   * make create-db
-   * make setup-db
-   * make run-app
-
-\
-If you would like to run the commands **not** through the makefile, run the following:
 
 DB setup
 1. Creates and starts a PostgreSQL Docker container: 
