@@ -10,6 +10,7 @@ class Goal < ApplicationRecord
   belongs_to :user
   has_many :goal_stats
 
+  # currently supporting only two interval options for simplicity
   enum  interval: {daily: 'daily', weekly: 'weekly'}
 
 end

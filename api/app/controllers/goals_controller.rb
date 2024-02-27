@@ -6,6 +6,7 @@ class GoalsController < ApplicationController
     render json: { goals: Goal.all }
   end
 
+  # create a single new goal
   def create
     goal_spec = goal_param
     new_goal = Goals::Create.new.call( goal_spec)
@@ -17,6 +18,7 @@ class GoalsController < ApplicationController
     end
   end
 
+  # return a single goal (by id) and its stats
   def show
     id = params[:id]
     goal = Goal.find(id)
@@ -24,6 +26,7 @@ class GoalsController < ApplicationController
     render json: { id: goal.id, interval: goal.interval, description: goal.description, goal_unit: goal.target_unit, goal_stats: goal.goal_stats }
   end
 
+  #  return the progress calculation towards the target value
   def progress
 
     id = params[:id]
